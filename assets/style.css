@@ -308,14 +308,7 @@ ul {
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
 }
-.hvr:hover:enabled,.hvr:focus:enabled{
-  box-shadow: 0 0.5em 0.5em -0.4em #007bff;
-  transform: translateY(-0.25em);
-}
-.hvrr:hover:enabled,.hvrr:focus:enabled{
-  box-shadow: 0 0.5em 0.5em -0.4em #dc3545;
-  transform: translateY(-0.25em);
-}
+
 .btn-hover:hover {
   background-position: 100% 0;
   moz-transition: all .4s ease-in-out;
