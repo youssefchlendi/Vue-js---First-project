@@ -1,17 +1,18 @@
-const app= Vue.createApp({
+const app1= Vue.createApp({
     data: function (){
         return{
-            cart : 0 ,
+            // cart : 0 ,
             brand : "VueJs",
             product : "Chausette",
             description :"    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, dolores adipisci tenetur beatae velit sequi illum tempore animi impedit. Laboriosam, culpa. Voluptas temporibus magnam, pariatur odit dolores recusandae cumque consectetur?",
             link:"#",
+            toAddv:0,
             // inventory:100,
             selectedVarient:0,
             details:['50% coton','30% laine','20% polyester'],
             varients:[
-                {id:2001,color:"green",quantity:50,image :"./assets/images/socks_green.png"},
-                {id:2002,color:"blue",quantity:0,image :"./assets/images/socks_blue.png"},
+                {id:2001,color:"green",quantity:50,image :"./assets/images/socks_green.png",cart:0},
+                {id:2002,color:"blue",quantity:1,image :"./assets/images/socks_blue.png",cart:0},
             ],
             tailles:[
                 {id:2001,taille:"30"},
@@ -24,14 +25,28 @@ const app= Vue.createApp({
     },
     methods : {
         addToCart(){
-            this.cart++;
+            if (this.varients[this.selectedVarient].quantity-this.toAddv>=0){
+            if (this.varients[this.selectedVarient].quantity){
+            this.varients[this.selectedVarient].cart+=this.toAddv;
+            this.varients[this.selectedVarient].quantity-=this.toAddv;
+            this.toAddv=0;}}
         },
         updateVarient(arg){
             this.selectedVarient=arg;
             console.log(this.selectedVarient);
         },
         remFromCart(){
-                this.cart--;
+            if (this.varients[this.selectedVarient].cart!=0){
+            this.varients[this.selectedVarient].cart--;
+            this.varients[this.selectedVarient].quantity++;
+        }
+        },
+        toAdd(){
+            this.toAddv++;
+        },
+        remToAdd(){
+            if (this.toAddv!=0)
+                this.toAddv--;
         }
     },
     computed : {
@@ -56,8 +71,21 @@ const app= Vue.createApp({
             else
             return this.product+" "+this.brand+" n'est pas en vente";
 
+        },
+        cart(){
+            let count=0;
+            for (let i = 0 ; i < this.varients.length ; i++) {
+                count+=this.varients[i].cart;
+            }
+            // return this.varients[this.selectedVarient].cart;
+            return count;
+        },
+        canRem(){
+            return this.varients[this.selectedVarient].cart==0;
+        },
+        quantity(){
+            return this.varients[this.selectedVarient].quantity;
         }
     }
 });//.mount("#app");
-const mountedApp = app.mount("#app");
-
+const mountedApp1 = app1.mount("#app1");

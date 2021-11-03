@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+    <!-- Import Vue.js -->
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="js/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/aa8ffd625c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="nav-bar">
+    </div>
+
+    <div class="" id="app1">
+        <div class="cart">Cart {{ cart }}</div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <img :src="image" :class="{outOfStock:!onStock,displayImage:onStock}" :class="{}" alt="Oops!">
+            </div>
+            <div class="col-md-6 border-left">
+                <h2 class="title">{{title}}</h2>
+
+                <div class="rating-wrap my-3">
+                    <ul class="rating-stars d-none">
+                        <li style="width:80%" class="stars-active">
+                            <img src="assets/images/stars-active.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="assets/images/starts-disable.svg" alt="">
+                        </li>
+                    </ul>
+                    <small class="label-rating text-muted">132 reviews </small>
+                    <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
+                </div> <!-- rating-wrap.// -->
+
+                <div class="mb-3">
+                    <h4 v-if="onStock" class="price ">$18.25</h4>
+                    <h4 v-else class="price text-danger">OUT OF STOCK </h4>
+                    <!-- <span class="text-muted">/per kg</span>  -->
+                </div>
+                <ul class="list-dots mb-0">
+                    <li>Chaussettes super doux et extensible</li>
+                    <li>Imprimé pour permettre à l'encre de pénétrer dans le fil. </li>
+                    <li>En le portant, vous développerez à coup sûr de meilleurs projets VueJs.</li>
+                    <li>Lavable en machine</li>
+                </ul>
+                <dl class="row mt-3">
+                    <dt class="col-sm-3">Model#</dt>
+                    <dd class="col-sm-9">CH-Vue</dd>
+
+                    <dt class="col-sm-3">Couleur</dt>
+                    <dd class="col-sm-9">
+                        <li v-for="(varient,index) in varients" :style="{backgroundColor:varient.color}"
+                            @click="updateVarient(index)" class="color-box"></li>
+                    </dd>
+                </dl>
+
+                <hr>
+                <div class="row">
+                    <div class="form-group col-md ">
+                        <label>Quantité</label>
+                        <div class="input-group mb-3 input-spinner col-10">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-light" @click="remToAdd()" type="button" id="button-minus"> − </button>
+                            </div>
+                            <input   type="text" class="form-control" v-model.number="toAddv">
+                            <div class="input-group-append">
+                                <button class="btn btn-light" @click="toAdd()" type="button" id="button-plus"> + </button>
+                            </div>
+                        </div>
+                        <span class="text-muted">Quantité restant:{{quantity}}</span>
+
+                    </div> <!-- col.// -->
+                    <div class="form-group col-md">
+                        <label>Select size</label>
+                        <div class="">
+                            <select class="form-controla col-6">
+                                <option v-for="taille in tailles">{{taille.taille}}</option>
+                            </select>
+                        </div>
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+                <button :disabled="!onStock" @click="addToCart" class="btn mr-3 btn-outline-primary"> <span
+                        class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i> </button>
+                <button :disabled="canRem" @click="remFromCart" class="btn  btn-outline-danger"> <span
+                        class="text">Remove from cart</span> <i class="fas fa-shopping-cart"></i> </button>
+            </div>
+        </div>
+    </div>
+    <!-- Import Js -->
+    <script src="js/main1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

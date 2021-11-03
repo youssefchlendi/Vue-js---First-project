@@ -6,9 +6,11 @@
   <title>Vue Mastery</title>
   <!-- Import Styles -->
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/bootstrap.min.css" />
   <!-- Import Vue.js -->
   <!-- <script src="https://unpkg.com/vue@next"></script> -->
   <script src="js/vue.global.js"></script>
+  <script src="https://kit.fontawesome.com/aa8ffd625c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,48 +21,31 @@
     <div class="product-display">
       <div class="product-container">
         <div class="product-image">
-          <img 
-          :src="image" 
-          :class="{outOfStock : !onStock}" 
-          alt="Oops!">
+          <img :src="image" :class="{outOfStock : !onStock}" alt="Oops!">
         </div>
         <div class="product-info">
           <h1>{{title}}</h1>
           <a :href="link">Voir plus</a>
-          <p 
-            v-if="inventory>10&&onStock">
-              En stock</p>
-          <p 
-            v-else-if="inventory>0&&inventory<=10">
-              Presque epuisée</p>
-          <p 
-            v-else>
-              En rupture de stock</p>
+          <p v-if="inventory>10&&onStock">
+            En stock</p>
+          <p v-else-if="inventory>0&&inventory<=10">
+            Presque epuisée</p>
+          <p v-else>
+            En rupture de stock</p>
           <p>{{Sale}}</p>
           <ul>
             <li v-for="detail in details">{{detail}}</li><br>
-            <li 
-                v-for="(colora,index) in varients" 
-                :style="{backgroundColor:colora.color}" 
-                class="color-circle"
-                @mouseover="updateVarient(index)" 
-                :key="colora.id"
-            >{{}}</li>
+            <li v-for="(colora,index) in varients" :style="{backgroundColor:colora.color}" class="color-circle"
+              @mouseover="updateVarient(index)" :key="colora.id">{{}}</li>
           </ul>
           <label for="select">Pointure</label>
           <select name="taille" id="" style="display: inline-block;">
             <option v-for="taille in tailles">{{taille.taille}}</option>
           </select>
           <div>
-            <button class="button" 
-              :class="{disabledButton:!onStock}" 
-              :disabled="!onStock" 
-              @click="addToCart">Add to
+            <button class="button" :class="{disabledButton:!onStock}" :disabled="!onStock" @click="addToCart">Add to
               cart</button>
-            <button class="button" 
-              :class="{disabledButton:!cart}" 
-              :disabled="!cart" 
-              @click="remFromCart">Remove from
+            <button class="button" :class="{disabledButton:!cart}" :disabled="!cart" @click="remFromCart">Remove from
               cart</button>
           </div>
         </div>
@@ -68,8 +53,10 @@
     </div>
 
   </div>
+  <!--  -->
   <!-- Import Js -->
   <script src="js/main.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
