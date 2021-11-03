@@ -107,7 +107,8 @@ p {
   padding: 1rem;
 }
 .displayImage{
-  filter: drop-shadow(0 1rem 1.75rem rgba(168, 168, 168, 0.568));}
+  filter: drop-shadow(0 1rem 1.75rem rgba(168, 168, 168, 0.568));
+}
 .product-container {
   display: flex;
   flex-direction: row;
@@ -239,6 +240,17 @@ ul {
   color: white;
   color: var(--theme-color);
 }
+.test{
+  /* box-shadow:
+  0.8px 2.4px 5.8px rgba(0, 0, 0, 0.014),
+  1.9px 5.8px 13.8px rgba(0, 0, 0, 0.02),
+  3.6px 10.9px 26px rgba(0, 0, 0, 0.024),
+  6.5px 19.4px 46.5px rgba(0, 0, 0, 0.029),
+  12.1px 36.3px 86.9px rgba(0, 0, 0, 0.036),
+  29px 87px 208px rgba(0, 0, 0, 0.05)
+
+; */
+}
 
 .item {
   padding: 10px;
@@ -271,6 +283,63 @@ ul {
 .material-icons {
   font-size: 1.8rem;
 }
+
+
+.buttons {
+  margin: 10%;
+  text-align: center;
+}
+
+.btn-hover {
+  width: 100;
+  font-size: 6px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 5px;
+  height: 25px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 10px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.hvr:hover:enabled,.hvr:focus:enabled{
+  box-shadow: 0 0.5em 0.5em -0.4em #007bff;
+  transform: translateY(-0.25em);
+}
+.hvrr:hover:enabled,.hvrr:focus:enabled{
+  box-shadow: 0 0.5em 0.5em -0.4em #dc3545;
+  transform: translateY(-0.25em);
+}
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-1 {
+  background-image: linear-gradient(to right, #41414100, #41414100, #30dd8a, #2bb673);
+  box-shadow: 0 2px 7.5px 0 rgba(42, 116, 8, 0.75);
+}
+.btn-hover.color-2 {
+  background-image: linear-gradient(to right, #41414100, #41414100, #2550dd, #1439b4);
+  box-shadow: 0 2px 7.5px 0 rgba(3, 27, 104, 0.75);
+}
+
+
+
+
 @media (max-width: 700px) {
   .item.search input {
     display: none;

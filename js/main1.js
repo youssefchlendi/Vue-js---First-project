@@ -92,6 +92,6 @@ const app1= Vue.createApp({
         price(){
             return this.varients[this.selectedVarient].price;
         }
-    }
+    },
 });//.mount("#app");
 const mountedApp1 = app1.mount("#app1");
