@@ -92,7 +92,6 @@ li {
 .nav-bar {
   background: linear-gradient(-90deg, #84cf6a, #16c0b0);
   height: 60px;
-  margin-bottom: 25px;
   -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
@@ -225,7 +224,67 @@ ul {
 #button-plus:hover {
   border: 1px solid #868686;
 }
+/* NAVBAR */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+:root {
+  --theme-bg-color: #3761af;
+  --theme-color: white;
+}
+.navbar {
+  box-shadow: 0 0 2px 0 grey;
+  align-items: center;
+  font-size: 1em;
+  background-color: #3761af;
+  background-color: var(--theme-bg-color);
+  color: white;
+  color: var(--theme-color);
+}
 
+.item {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  color: var(--theme-color);
+}
+
+.item.right {
+  margin: 0 0 0 auto;
+}
+
+.logo img {
+  max-width: 50%;
+  margin: 0 ;
+  padding : 0;
+  -webkit-filter: invert(100%); /* Safari/Chrome */
+  filter: invert(100%);
+}
+
+.item .group {
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.item .group .sub {
+  font-size: 0.8em;
+}
+
+.material-icons {
+  font-size: 1.8rem;
+}
+@media (max-width: 700px) {
+  .item.search input {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .detail,
+  .logo .text {
+    display: none;
+  }
+}
+
+/* NAVBAR */
 @media only screen and (max-width: 600px) {
   .container {
     flex-direction: column;

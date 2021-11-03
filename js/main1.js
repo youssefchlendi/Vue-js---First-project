@@ -11,8 +11,8 @@ const app1= Vue.createApp({
             selectedVarient:0,
             details:['50% coton','30% laine','20% polyester'],
             varients:[
-                {id:2001,color:"green",quantity:50,image :"./assets/images/socks_green.png",cart:0},
-                {id:2002,color:"blue",quantity:1,image :"./assets/images/socks_blue.png",cart:0},
+                {id:2002,name:'Chausette Blue',color:"blue",quantity:1,image :"./assets/images/socks_blue.png",cart:0,price:12},
+                {id:2001,name:'Chausette Green',color:"green",quantity:50,image :"./assets/images/socks_green.png",cart:0,price:10},
             ],
             tailles:[
                 {id:2001,taille:"30"},
@@ -85,6 +85,12 @@ const app1= Vue.createApp({
         },
         quantity(){
             return this.varients[this.selectedVarient].quantity;
+        },
+        total(){
+            return (this.varients[0].cart*this.varients[0].price+this.varients[1].cart*this.varients[1].price);
+        },
+        price(){
+            return this.varients[this.selectedVarient].price;
         }
     }
 });//.mount("#app");
